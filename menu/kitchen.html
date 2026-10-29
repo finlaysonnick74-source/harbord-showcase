@@ -1,0 +1,35 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Kitchen & bar tickets · Harbord Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<style>
+body{background:var(--brown);color:var(--cream);min-height:100vh}
+.kt{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid rgba(249,228,203,.15)}
+.kt h1{font-size:24px;color:var(--saffron)}.kt .r{margin-left:auto;display:flex;gap:14px;align-items:center;font-size:13px}
+.live{display:inline-flex;gap:6px;align-items:center;font:600 12px Oswald;letter-spacing:.14em}.live:before{content:"";width:8px;height:8px;border-radius:50%;background:#7fd18b;animation:pulse 1.6s infinite}
+.kt button{color:var(--cream);text-decoration:underline;font-size:13px}
+.cols{display:grid;grid-template-columns:1fr;gap:16px;padding:16px}
+@media(min-width:760px){.cols{grid-template-columns:repeat(3,1fr)}}
+.col h2{font-size:15px;letter-spacing:.14em;color:var(--cream);opacity:.8;margin:2px 4px 10px;display:flex;gap:8px}.col h2 span{background:rgba(249,228,203,.15);border-radius:999px;padding:0 8px}
+.tk{background:var(--cream);color:var(--ink);border-radius:16px;padding:14px 16px;margin-bottom:12px;border-top:6px solid var(--saffron);animation:in .4s}
+.tk.preparing{border-color:var(--teal)}.tk.ready{border-color:var(--olive)}
+@keyframes in{from{transform:translateY(-10px);opacity:0}}
+.tk .h{display:flex;align-items:baseline;gap:8px}.tk .tb{font:700 26px Oswald;color:var(--terra);text-transform:uppercase}.tk .no{font:600 13px Oswald;color:var(--olive);letter-spacing:.1em}.tk .age{margin-left:auto;font-size:12px;color:var(--olive)}
+.tk ul{list-style:none;margin:8px 0 12px}.tk li{padding:5px 0;border-bottom:1px dashed var(--line);font-size:14px}.tk li b{font-family:Oswald;color:var(--terra);margin-right:6px}.tk li em{display:block;font-size:12.5px;color:var(--olive)}
+.tk .act{width:100%;padding:12px;border-radius:999px;font:600 15px Oswald;text-transform:uppercase;letter-spacing:.08em;background:var(--terra);color:var(--paper)}
+.tk.preparing .act{background:var(--teal)}.tk.ready .act{background:var(--olive)}
+.none{opacity:.55;font-style:italic;font-size:13px;padding:6px 4px}
+</style></head><body>
+<header class="kt"><h1 class="hd">Tickets</h1><span class="live">LIVE</span><div class="r"><a href="index.html?table=12" target="_blank" style="color:var(--cream)">Open guest menu</a><button id="clr">Clear tickets</button></div></header>
+<div class="cols"><section class="col"><h2 class="hd">New <span id="c-received">0</span></h2><div id="received"></div></section><section class="col"><h2 class="hd">Preparing <span id="c-preparing">0</span></h2><div id="preparing"></div></section><section class="col"><h2 class="hd">Ready to run <span id="c-ready">0</span></h2><div id="ready"></div></section></div>
+<script>
+const OK='harbord-orders',bc='BroadcastChannel' in window?new BroadcastChannel('harbord-orders'):null;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const get=()=>{try{return JSON.parse(localStorage.getItem(OK)||'[]')}catch(e){return[]}};
+const put=o=>{localStorage.setItem(OK,JSON.stringify(o));bc&&bc.postMessage({t:'orders'})};
+const NEXT={received:['preparing','Start preparing'],preparing:['ready','Ready · run to table'],ready:['delivered','Delivered']};
+const age=ts=>{const m=Math.floor((Date.now()-ts)/60000);return m<1?'just now':m+' min ago'};
+function draw(){const o=get();['received','preparing','ready'].forEach(s=>{const l=o.filter(x=>x.status===s);document.getElementById('c-'+s).textContent=l.length;
+ document.getElementById(s).innerHTML=l.length?l.map(x=>`<article class="tk ${s}"><div class="h"><span class="tb">Table ${esc(x.table)}</span><span class="no">#${x.no}</span><span class="age">${age(x.ts)}</span></div><ul>${x.items.map(i=>`<li><b>${i.qty}×</b>${esc(i.name)}${i.opt?' · '+esc(i.opt):''}${i.mods.length||i.note?`<em>${esc([...i.mods,i.note].filter(Boolean).join(' · '))}</em>`:''}</li>`).join('')}</ul><button class="act" data-id="${x.id}">${NEXT[s][1]}</button></article>`).join(''):'<p class="none">Nothing here yet.</p>'})}
+document.addEventListener('click',e=>{const b=e.target.closest('.act');if(!b)return;const o=get(),x=o.find(i=>i.id===b.dataset.id);if(x){x.status=NEXT[x.status][0];put(o);draw()}});
+document.getElementById('clr').onclick=()=>{put(get().map(o=>({...o,status:'delivered'})));draw()};
+bc&&bc.addEventListener('message',draw);addEventListener('storage',e=>{if(e.key===OK)draw()});setInterval(draw,20000);draw();
+</script></body></html>

@@ -1,0 +1,49 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F9E4CB"><title>07 AI search-ready profile · Harbord × BuildIT</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"><style>
+.ai>div{min-width:0}
+.ai{display:grid;gap:22px;grid-template-columns:1fr}@media(min-width:960px){.ai{grid-template-columns:1fr 1fr}}
+.chat{background:var(--paper);border-radius:22px;padding:20px}
+.chat .q{background:var(--brown);color:var(--cream);border-radius:18px 18px 4px 18px;padding:10px 14px;margin-left:auto;max-width:85%;font-size:14px;width:fit-content}
+.chat .a{background:#fff;border-radius:18px 18px 18px 4px;padding:12px 14px;margin-top:10px;font-size:14px;max-width:92%;border:1px solid var(--line)}
+.chat .a.bad{color:#6b5b50}.chat .a mark{background:rgba(224,164,58,.35);padding:0 2px}
+.chat h4{font-size:20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;color:var(--brown)}
+.tog{display:flex;gap:6px;margin-bottom:14px}.tog button{font:600 12px Oswald;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--terra);color:var(--terra);border-radius:999px;padding:6px 14px}.tog button[aria-pressed=true]{background:var(--terra);color:var(--paper)}
+pre{background:#22160f;color:#f4e3cc;border-radius:22px;padding:20px;overflow:auto;font-size:12.5px;line-height:1.55;max-height:560px}
+pre .k{color:#E0A43A}pre .s{color:#9cc5c2}
+.codebar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+</style></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html"><i class="mini"></i><b>Harbord × BuildIT</b><span>Epochal ideas</span></a><nav><a href="../index.html#ideas">Ideas</a><a class="hide-s" href="../ideas/order-at-table.html">Order demo</a><a href="../menu/index.html?table=12">Live menu</a></nav></div></header>
+<section class="ih"><div class="wrap"><div class="num">07</div><h1 class="hd">AI search-ready profile</h1><p class="lede">Structured data so ChatGPT, Google and Siri answer questions about the Harbord correctly.</p>
+<div class="facts"><div><b>Build time</b><span>30m</span></div><div><b>Hosting</b><span>Added to any site</span></div><div><b>Support</b><span>BuildIT · buildit.net.au</span></div></div></div></section>
+
+<section class="demo"><div class="wrap"><div class="ai">
+<div><div class="codebar"><span class="label real">Real venue data</span><button class="btn ghost" id="copy" style="padding:8px 16px">Copy JSON-LD</button></div><pre id="code"></pre><p class="cap" style="text-align:left">schema.org markup built from the Harbord’s public details. Pasted into any page’s head, it tells search engines and AI assistants exactly what the venue is.</p></div>
+<div><span class="label sample">Illustrative mock-up</span><div class="chat" style="margin-top:12px"><h4 class="hd">Asking an AI assistant</h4><div class="tog"><button aria-pressed="true" data-m="before">Before</button><button aria-pressed="false" data-m="after">After</button></div>
+<div class="q">Is there a good pub near Freshwater Beach with a rooftop, and can I bring my dog?</div><div class="a" id="ans"></div></div>
+<p class="cap" style="text-align:left">An example of the kind of answer AI assistants give. Not a real transcript.</p></div>
+</div>
+<div class="feat"><div data-reveal><h4 class="hd">Be the answer</h4><p>More guests now ask ChatGPT, Gemini or Siri where to go. Clean structured data makes the Harbord the confident answer, with the right hours and menu.</p></div><div data-reveal><h4 class="hd">Every venue, one feed</h4><p>Generated from the same menu and events data, so it never goes stale.</p></div><div data-reveal><h4 class="hd">Safe to add</h4><p>Invisible to visitors and slots into the current site or the redevelopment without touching the design.</p></div></div>
+</div></section>
+<script>
+(function(){
+const ld={"@context":"https://schema.org","@type":"BarOrPub","name":"Harbord Hotel","alternateName":"The Freshwater Beach House","url":"https://harbordhotel.com.au","telephone":"+61 2 9905 3434","email":"hello@harbordhotel.com.au",
+"address":{"@type":"PostalAddress","streetAddress":"29 Moore Rd","addressLocality":"Freshwater","addressRegion":"NSW","postalCode":"2096","addressCountry":"AU"},
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"11:00","closes":"24:00"}],
+"servesCuisine":["Seafood","Wood-fired pizza","Californian","Mexican-inspired"],"priceRange":"$$","acceptsReservations":true,"hasMenu":"https://harbordhotel.com.au/eat-and-drink/","foundingDate":"1928",
+"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Dog-friendly courtyard","value":true},{"@type":"LocationFeatureSpecification","name":"Rooftop bar (Bombies)","value":true},{"@type":"LocationFeatureSpecification","name":"Live music Friday and Saturday","value":true}],
+"containsPlace":{"@type":"BarOrPub","name":"Bombies","description":"Rooftop bar and band room at Harbord Hotel"},
+"parentOrganization":{"@type":"Organization","name":"Epochal Hotels","url":"https://epochalhotels.com.au"},
+"sameAs":["https://www.instagram.com/harbordhotel/","https://www.facebook.com/harbordhotel/"]};
+const j=JSON.stringify(ld,null,2);const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+document.getElementById('code').innerHTML=esc('<script type="application/ld+json">\n'+j+'\n</'+'script>').replace(/"([^"]+)":/g,'<span class="k">"$1"</span>:').replace(/: "([^"]*)"/g,': <span class="s">"$1"</span>');
+document.getElementById('copy').onclick=async e=>{try{await navigator.clipboard.writeText('<script type="application/ld+json">\n'+j+'\n</'+'script>');e.target.textContent='Copied'}catch(_){e.target.textContent='Select and copy'}setTimeout(()=>e.target.textContent='Copy JSON-LD',1800)};
+const A={before:'<span class="a bad">There are several pubs on the Northern Beaches. You could try a hotel in Manly or Dee Why. I’m not sure which ones have rooftops or allow dogs, so it’s best to check their websites or call ahead.</span>',
+after:'Yes. <mark>Harbord Hotel</mark> at 29 Moore Rd, Freshwater is a minute from the beach. Upstairs is <mark>Bombies</mark>, a rooftop bar and band room, and <mark>dogs are welcome in the courtyard</mark>. It’s open daily from 11am until late, with live music on Friday and Saturday nights. Call (02) 9905 3434 or book online.'};
+const ans=document.getElementById('ans');const set=m=>{ans.innerHTML=A[m];ans.classList.toggle('bad',m==='before');document.querySelectorAll('.tog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m))};
+document.querySelector('.tog').onclick=e=>{const b=e.target.closest('button');if(b)set(b.dataset.m)};set('before');
+})();
+</script>
+
+<div class="wrap"><div class="pager"><a href="functions.html"><small>← Previous</small><b>Functions & weddings</b></a><a href="whats-on.html"><small>Next →</small><b>Live What’s On</b></a></div></div>
+<footer class="foot"><div class="wrap"><div><h4 class="hd">Built by BuildIT</h4><p>Ten working ideas for Epochal Hotels, designed and built by BuildIT in under a day. Everything here is clickable, mobile-first and ready to put on your own domain.</p><small>BuildIT · buildit.net.au · Prepared for Jess Fitzgerald and Glenn Piper, Epochal Hotels. Concept demos prepared by BuildIT; prices and dishes from the current Harbord menu.</small></div>
+<div><p class="eyebrow" style="color:var(--saffron)">Ideas</p><a href="../ideas/order-at-table.html">01 · QR menu & order at table</a><a href="../ideas/sold-out.html">02 · Sold-out switch</a><a href="../ideas/photo-to-menu.html">03 · Photo-to-menu specials</a><a href="../ideas/group-menus.html">04 · Group menu system</a><a href="../ideas/venue-tour.html">05 · 3D virtual venue tour</a></div><div><p class="eyebrow" style="color:var(--saffron)">&nbsp;</p><a href="../ideas/functions.html">06 · Functions & weddings</a><a href="../ideas/ai-search.html">07 · AI search-ready profile</a><a href="../ideas/whats-on.html">08 · Live What’s On</a><a href="../ideas/history.html">09 · Harbord history</a><a href="../ideas/group-showcase.html">10 · How it all fits</a></div></div></footer>
+<script src="../assets/vendor/gsap.min.js"></script><script src="../assets/vendor/ScrollTrigger.min.js"></script><script src="../assets/site.js"></script></body></html>

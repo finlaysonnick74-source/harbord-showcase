@@ -1,0 +1,40 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Staff · Sold out · Harbord Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<style>
+.login{max-width:340px;margin:12vh auto;text-align:center;padding:0 20px}.login h1{color:var(--terra);font-size:40px;line-height:1}
+.pin{width:100%;font:600 28px "Oswald";letter-spacing:.5em;text-align:center;padding:12px;border-radius:999px;border:2px solid var(--terra);background:var(--paper);color:var(--brown);margin:18px 0 10px}
+.btn{background:var(--terra);color:var(--paper);padding:12px 22px;border-radius:999px;font-size:15px;width:100%}
+.err{color:var(--terra);font-size:13px;min-height:1.4em}
+.top{display:flex;align-items:center;gap:10px;padding:18px 0 6px}.top h1{color:var(--terra);font-size:28px}
+.top .r{margin-left:auto;display:flex;gap:12px}.lnk{font-size:13px;text-decoration:underline;color:var(--terra)}
+.srch{width:100%;padding:11px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);font:15px "Libre Baskerville";margin:8px 0 4px}
+.grp{font-size:13px;color:var(--olive);letter-spacing:.14em;margin:22px 0 4px}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.row .n{font:600 16px "Oswald";text-transform:uppercase;letter-spacing:.03em;color:var(--brown)}.row .s{font-size:12px;color:var(--olive)}
+.row.out .n{opacity:.5;text-decoration:line-through}
+.sw{margin-left:auto;flex:0 0 auto;width:54px;height:30px;border-radius:999px;background:var(--olive);position:relative;transition:.2s}
+.sw:after{content:"";position:absolute;top:3px;left:27px;width:24px;height:24px;border-radius:50%;background:var(--paper);transition:.2s}
+.sw[aria-checked=true]{background:var(--terra)}.sw[aria-checked=true]:after{left:3px}
+.st{font:600 11px "Oswald";letter-spacing:.12em;width:70px;text-align:right;color:var(--olive)}.row.out .st{color:var(--terra)}
+.cnt{font-size:13px;color:var(--brown)}.foot{font-size:12px;color:var(--olive);margin:26px 0 40px;font-style:italic}
+</style></head><body>
+<div id="login" class="login"><div class="sun" aria-hidden="true"></div><div class="eyebrow hd">Harbord Hotel · Staff</div><h1 class="hd">Sold-out switch</h1>
+<form id="f"><input class="pin" id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" aria-label="Staff PIN" placeholder="••••"><div class="err" id="err"></div><button class="btn hd">Unlock</button></form><p class="foot">Demo PIN: 1234</p></div>
+<div id="app" class="wrap" hidden><div class="top"><h1 class="hd">Sold out today</h1><div class="r"><a class="lnk" href="index.html" target="_blank">View menu</a><button class="lnk" id="reset">Reset all</button><button class="lnk" id="lock">Lock</button></div></div>
+<div class="cnt" id="cnt"></div><input class="srch" id="q" type="search" placeholder="Search dishes and drinks" aria-label="Search"><div id="list"></div>
+<p class="foot">Changes show on guests' menus straight away, including the Bombies rooftop menu. This demo saves to this device; the live version would save to a shared Google Sheet or Cloudflare KV so every phone updates.</p></div>
+<script>
+const K='harbord-soldout',$=s=>document.querySelector(s);let D;
+const get=()=>new Set(JSON.parse(localStorage.getItem(K)||'[]')),put=s=>localStorage.setItem(K,JSON.stringify([...s]));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function draw(){if(!D)return;const so=get(),q=$('#q').value.toLowerCase();let h='';
+ D.menus.forEach(m=>m.sections.forEach(s=>{const its=s.items.filter(i=>!i.id.startsWith('bombies-')&&i.name.toLowerCase().includes(q));if(!its.length)return;
+  h+=`<div class="grp hd">${m.label} · ${esc(s.title)}</div>`+its.map(i=>`<div class="row${so.has(i.id)?' out':''}"><div><div class="n">${esc(i.name)}</div><div class="s">${esc(i.price)}</div></div><span class="st">${so.has(i.id)?'SOLD OUT':'AVAILABLE'}</span><button class="sw" role="switch" aria-checked="${so.has(i.id)}" aria-label="${esc(i.name)} sold out" data-id="${i.id}"></button></div>`).join('')}));
+ $('#list').innerHTML=h||'<p class="foot">No matches.</p>';$('#cnt').textContent=so.size?so.size+' item'+(so.size>1?'s':'')+' marked sold out':'Everything is available';}
+function open(){$('#login').hidden=true;$('#app').hidden=false;fetch('menu.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{D=d;draw()})}
+$('#f').onsubmit=e=>{e.preventDefault();if($('#pin').value==='1234'){sessionStorage.setItem('hh-staff','1');open()}else{$('#err').textContent='That PIN is not right. Try again.';$('#pin').value=''}};
+$('#lock').onclick=()=>{sessionStorage.removeItem('hh-staff');location.reload()};
+$('#reset').onclick=()=>{put(new Set());draw()};$('#q').oninput=draw;
+$('#list').onclick=e=>{const b=e.target.closest('.sw');if(!b)return;const s=get();s.has(b.dataset.id)?s.delete(b.dataset.id):s.add(b.dataset.id);put(s);draw()};
+if(sessionStorage.getItem('hh-staff'))open();
+</script></body></html>

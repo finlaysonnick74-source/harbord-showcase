@@ -1,0 +1,58 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F9E4CB"><title>04 Group menu system · Harbord × BuildIT</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"><style>
+.gm{display:grid;gap:30px;grid-template-columns:1fr;align-items:start}@media(min-width:960px){.gm{grid-template-columns:1fr 380px}}
+.vlist{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.v{text-align:left;background:var(--paper);border-radius:18px;padding:16px 18px;border:2px solid transparent;transition:.25s;position:relative}
+.v:before{content:"";display:block;width:36px;height:18px;border-radius:36px 36px 0 0;background:var(--a);margin-bottom:10px}
+.v b{display:block;font:700 19px Oswald;text-transform:uppercase;color:var(--brown);letter-spacing:.02em}.v small{font-size:13px;color:var(--olive)}
+.v[aria-pressed=true]{border-color:var(--a);background:#fff8ee;box-shadow:0 10px 26px rgba(58,34,22,.12)}
+.v .soon{position:absolute;right:14px;top:14px;font:600 10px Oswald;letter-spacing:.14em;text-transform:uppercase;background:var(--cream);border-radius:999px;padding:2px 8px}
+.mini{width:100%;max-width:360px;margin:0 auto;border-radius:44px;background:#1d130d;padding:11px;box-shadow:0 30px 60px rgba(58,34,22,.3)}
+.mini .scr{border-radius:34px;overflow:hidden;background:var(--bg);height:640px;display:flex;flex-direction:column;transition:background .5s}
+.mini .mh{padding:46px 22px 18px;text-align:center;background:var(--bg);transition:.5s}
+.mini .arch{width:84px;height:42px;border-radius:84px 84px 0 0;margin:0 auto 12px;background:repeating-linear-gradient(180deg,var(--a) 0 8px,var(--a2) 8px 12px);transition:.5s}
+.mini h3{font-size:34px;color:var(--a);transition:color .5s}.mini .loc{font:600 11px Oswald;letter-spacing:.2em;text-transform:uppercase;color:var(--fg);opacity:.7;margin-top:6px}
+.mini .tabsm{display:flex;gap:6px;justify-content:center;padding:10px;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)}
+.mini .tabsm span{font:600 12px Oswald;text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:999px;color:var(--fg)}.mini .tabsm span:first-child{background:var(--a);color:var(--bg)}
+.mini .its{padding:6px 22px;overflow:auto;flex:1}.mini .it{padding:12px 0;border-bottom:1px dashed rgba(0,0,0,.15);display:flex;gap:10px}
+.mini .it b{font:700 15px Oswald;text-transform:uppercase;color:var(--fg)}.mini .it p{font-size:12.5px;color:var(--fg);opacity:.75}.mini .it span{margin-left:auto;font:600 15px Oswald;color:var(--a)}
+.mini .lab{font:600 10px Oswald;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);opacity:.6;padding:10px 22px 0}
+</style></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html"><i class="mini"></i><b>Harbord × BuildIT</b><span>Epochal ideas</span></a><nav><a href="../index.html#ideas">Ideas</a><a class="hide-s" href="../ideas/order-at-table.html">Order demo</a><a href="../menu/index.html?table=12">Live menu</a></nav></div></header>
+<section class="ih"><div class="wrap"><div class="num">04</div><h1 class="hd">Group menu system</h1><p class="lede">One engine for every Epochal venue. Each keeps its own look, menu and sold-out list.</p>
+<div class="facts"><div><b>Build time</b><span>35m</span></div><div><b>Hosting</b><span>Cloudflare Pages</span></div><div><b>Support</b><span>BuildIT · buildit.net.au</span></div></div></div></section>
+
+<section class="demo"><div class="wrap"><div class="gm">
+<div><span class="label real">Real Epochal venues</span><p class="cap" style="text-align:left;margin:10px 0 16px">Venue list from Epochal’s website and its Forbes Australia profile (June 2026). Tap a venue to re-skin the menu.</p><div class="vlist" id="vlist"></div></div>
+<div><div class="mini" id="mini"><div class="scr"><div class="mh"><div class="arch"></div><h3 class="hd" id="vn"></h3><div class="loc" id="vl"></div></div><div class="tabsm"><span>Food</span><span>Drinks</span><span>Kids</span></div><div class="lab" id="lab"></div><div class="its" id="its"></div></div></div>
+<p class="cap" id="vcap"></p></div>
+</div>
+<div class="feat"><div data-reveal><h4 class="hd">One engine, many venues</h4><p>Menus, sold-out lists, specials and ordering all run on the same code. Each venue gets its own colours, type and web address.</p></div><div data-reveal><h4 class="hd">Group control, local freedom</h4><p>Marketing sets the look and group-wide items once. Each venue’s team owns its own dishes and prices.</p></div><div data-reveal><h4 class="hd">New venue in an afternoon</h4><p>When Epochal opens or buys a venue, its menu is live the same day: add a sheet tab, pick a palette, print the table cards.</p></div></div>
+</div></section>
+<script>
+(function(){
+const V=[
+{n:'Harbord Hotel',l:'Freshwater, Sydney',a:'#9A4A2C',a2:'#E0A43A',bg:'#F9E4CB',fg:'#3A2216',real:true},
+{n:'The Old Commodore Hotel',l:'McMahons Point, Sydney',a:'#2F4858',a2:'#B88746',bg:'#F3EEE6',fg:'#1F2A30'},
+{n:'Q Station',l:'Manly, Sydney',a:'#3F6B5A',a2:'#C9A66B',bg:'#EEF0E8',fg:'#1F2E27'},
+{n:'The Beach Hotel',l:'Merewether, Newcastle',a:'#1F6F8B',a2:'#F2B544',bg:'#EAF4F4',fg:'#12313B'},
+{n:'The Scarborough Hotel',l:'Scarborough, NSW',a:'#7A5C3E',a2:'#5E8C8A',bg:'#F5EBDD',fg:'#33261A'},
+{n:'Bermagui Beach Hotel',l:'Bermagui, NSW',a:'#2E5E7E',a2:'#E07A4F',bg:'#EFF3F5',fg:'#18303F'},
+{n:'Tumbulgum Tavern',l:'Tweed River, NSW',a:'#4E6B3A',a2:'#D9A441',bg:'#F1F0E2',fg:'#25301C'},
+{n:'Hook Island',l:'Whitsundays, QLD',a:'#0E7C86',a2:'#F4A259',bg:'#E9F6F4',fg:'#0D3236',soon:'Opening 2027'}];
+const H=[['Potato Scallops','Wakame & vinegar salt, aioli','$16'],['Fritto Misto','Calamari & prawns, chilli, aioli, lime','$24'],['Bo Peep','Wood-fired lamb, fig jam, salsa verde','$28'],['Woodfired Barramundi','Quinoa, hummus, kale, pomegranate','$38'],['Passionfruit Cheesecake','Coconut gelato, passionfruit jam','$16']];
+const T=[['Market Fish','Ask the team for today’s catch','$—'],['Signature Burger','House sauce, pickles, chips','$—'],['Woodfired Pizza','Rotating seasonal toppings','$—'],['Kids Meal','Comes with juice','$—']];
+const $=s=>document.querySelector(s);
+$('#vlist').innerHTML=V.map((v,i)=>`<button class="v" style="--a:${v.a}" aria-pressed="${i===0}" data-i="${i}">${v.soon?`<span class="soon">${v.soon}</span>`:''}<b>${v.n}</b><small>${v.l}</small></button>`).join('');
+function show(i){const v=V[i],m=$('#mini');['a','a2','bg','fg'].forEach(k=>m.style.setProperty('--'+k,v[k]));$('#vn').textContent=v.n;$('#vl').textContent=v.l;
+ const rows=v.real?H:T;$('#lab').textContent=v.real?'Live Harbord menu':'Sample layout · menu loads from this venue’s own sheet';
+ $('#its').innerHTML=rows.map(r=>`<div class="it"><div><b>${r[0]}</b><p>${r[1]}</p></div><span>${r[2]==='$—'?'':r[2]}</span></div>`).join('');
+ $('#vcap').textContent=v.real?'Harbord items and prices are from the current menu.':'Colours are a proposal; items show the template layout only.';
+ document.querySelectorAll('.v').forEach(b=>b.setAttribute('aria-pressed',b.dataset.i==i))}
+$('#vlist').onclick=e=>{const b=e.target.closest('.v');if(b)show(+b.dataset.i)};show(0);
+})();
+</script>
+
+<div class="wrap"><div class="pager"><a href="photo-to-menu.html"><small>← Previous</small><b>Photo-to-menu specials</b></a><a href="venue-tour.html"><small>Next →</small><b>3D virtual venue tour</b></a></div></div>
+<footer class="foot"><div class="wrap"><div><h4 class="hd">Built by BuildIT</h4><p>Ten working ideas for Epochal Hotels, designed and built by BuildIT in under a day. Everything here is clickable, mobile-first and ready to put on your own domain.</p><small>BuildIT · buildit.net.au · Prepared for Jess Fitzgerald and Glenn Piper, Epochal Hotels. Concept demos prepared by BuildIT; prices and dishes from the current Harbord menu.</small></div>
+<div><p class="eyebrow" style="color:var(--saffron)">Ideas</p><a href="../ideas/order-at-table.html">01 · QR menu & order at table</a><a href="../ideas/sold-out.html">02 · Sold-out switch</a><a href="../ideas/photo-to-menu.html">03 · Photo-to-menu specials</a><a href="../ideas/group-menus.html">04 · Group menu system</a><a href="../ideas/venue-tour.html">05 · 3D virtual venue tour</a></div><div><p class="eyebrow" style="color:var(--saffron)">&nbsp;</p><a href="../ideas/functions.html">06 · Functions & weddings</a><a href="../ideas/ai-search.html">07 · AI search-ready profile</a><a href="../ideas/whats-on.html">08 · Live What’s On</a><a href="../ideas/history.html">09 · Harbord history</a><a href="../ideas/group-showcase.html">10 · How it all fits</a></div></div></footer>
+<script src="../assets/vendor/gsap.min.js"></script><script src="../assets/vendor/ScrollTrigger.min.js"></script><script src="../assets/site.js"></script></body></html>

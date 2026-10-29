@@ -1,0 +1,68 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F9E4CB"><title>03 Photo-to-menu specials · Harbord × BuildIT</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"><style>
+.ptm{display:grid;gap:26px;grid-template-columns:1fr}@media(min-width:960px){.ptm{grid-template-columns:1.05fr 1fr}}
+.board{position:relative;border-radius:22px;overflow:hidden;background:#2f3a33;box-shadow:inset 0 0 0 14px #7a4b2c,inset 0 0 0 17px #5a3420,0 24px 50px rgba(58,34,22,.3);aspect-ratio:4/3.4}
+.board svg,.board img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scan{position:absolute;left:14px;right:14px;height:70px;top:0;background:linear-gradient(180deg,transparent,rgba(224,164,58,.55),transparent);opacity:0;pointer-events:none}
+.scan.go{animation:scan 2.2s ease-in-out 1;opacity:1}
+@keyframes scan{0%{top:0}100%{top:calc(100% - 70px)}}
+.boxes span{position:absolute;border:2px solid var(--saffron);border-radius:8px;opacity:0;transition:opacity .3s}
+.boxes span.on{opacity:1}
+.ctrls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.ctrls input{display:none}
+.out{background:var(--paper);border-radius:22px;padding:22px;min-height:340px}
+.out h3{font-size:26px;color:var(--terra)}
+.ex{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);opacity:0;transform:translateY(10px);transition:.45s}
+.ex.on{opacity:1;transform:none}
+.ex b{font:700 17px Oswald;text-transform:uppercase;color:var(--brown);letter-spacing:.03em}.ex p{font-size:13.5px;color:#5b4232}.ex .pr{margin-left:auto;font:600 17px Oswald;color:var(--terra)}
+.ex .t{display:flex;gap:6px;margin-top:5px}.ex .t i{font:600 11px Oswald;font-style:normal;border:1.2px solid var(--olive);color:var(--olive);border-radius:999px;padding:1px 7px}
+.ex .conf{font:600 11px Oswald;letter-spacing:.1em;color:var(--teal)}
+.empty-out{font-style:italic;color:var(--olive);font-size:14px;margin-top:10px}
+.pub{display:none;margin-top:18px}.pub.on{display:flex;gap:10px;flex-wrap:wrap}
+</style></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html"><i class="mini"></i><b>Harbord × BuildIT</b><span>Epochal ideas</span></a><nav><a href="../index.html#ideas">Ideas</a><a class="hide-s" href="../ideas/order-at-table.html">Order demo</a><a href="../menu/index.html?table=12">Live menu</a></nav></div></header>
+<section class="ih"><div class="wrap"><div class="num">03</div><h1 class="hd">Photo-to-menu specials</h1><p class="lede">Snap the chalkboard. The specials become tidy, priced, tagged menu items, ready to publish.</p>
+<div class="facts"><div><b>Build time</b><span>50m</span></div><div><b>Hosting</b><span>Cloudflare Pages + Worker</span></div><div><b>Support</b><span>BuildIT · buildit.net.au</span></div></div></div></section>
+
+<section class="demo"><div class="wrap"><div class="ptm">
+<div><span class="label sample">Demo · sample specials board</span><div class="board" style="margin-top:12px" id="board"><svg viewBox="0 0 800 680" role="img" aria-label="Chalkboard specials: sample">
+<defs><filter id="chalk"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/></filter><radialGradient id="g" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#3b4a41"/><stop offset="1" stop-color="#232c27"/></radialGradient></defs>
+<rect width="800" height="680" fill="url(#g)"/><g fill="#f4ecdc" filter="url(#chalk)" font-family="Caveat, 'Segoe Print', cursive">
+<text x="400" y="105" text-anchor="middle" font-size="64" font-family="Oswald" font-weight="700" letter-spacing="6">TODAY'S SPECIALS</text>
+<path d="M220 128 Q400 150 580 128" stroke="#E0A43A" stroke-width="4" fill="none"/>
+<text x="90" y="215" font-size="46">Kingfish crudo</text><text x="640" y="215" font-size="46" fill="#E0A43A">$24</text><text x="90" y="252" font-size="30" opacity=".8">finger lime, jalapeño, coconut  GF DF</text>
+<text x="90" y="330" font-size="46">Pork carnitas tacos (3)</text><text x="640" y="330" font-size="46" fill="#E0A43A">$24</text><text x="90" y="367" font-size="30" opacity=".8">pineapple salsa, pickled onion</text>
+<text x="90" y="445" font-size="46">Burrata &amp; heirloom tomato</text><text x="640" y="445" font-size="46" fill="#E0A43A">$22</text><text x="90" y="482" font-size="30" opacity=".8">basil oil, focaccia  V</text>
+<text x="90" y="560" font-size="46">Mango daiquiri</text><text x="640" y="560" font-size="46" fill="#E0A43A">$19</text><text x="90" y="597" font-size="30" opacity=".8">rum, mango, lime</text>
+<circle cx="720" cy="620" r="22" fill="none" stroke="#5E8C8A" stroke-width="3"/><path d="M706 620 a14 14 0 0 1 28 0" stroke="#E0A43A" stroke-width="3" fill="none"/></g></svg>
+<img id="userimg" alt="Your uploaded photo" hidden><div class="boxes" id="boxes"></div><div class="scan" id="scan"></div></div>
+<div class="ctrls"><button class="btn" id="read">Read the board</button><label class="btn ghost" for="file">Upload your own photo</label><input type="file" id="file" accept="image/*"></div>
+<p class="cap" style="text-align:left" id="note">This demo reads the sample board above. The live version reads your photo with an AI vision model, then a manager checks and publishes.</p></div>
+<div class="out"><h3 class="hd">Menu items</h3><div id="items"><p class="empty-out">Read the board to turn it into menu items.</p></div>
+<div class="pub" id="pub"><button class="btn" id="publish">Publish to the menu</button><a class="btn ghost" href="../menu/index.html?table=12" target="_blank">See it on the menu</a></div><p class="cap" id="pubmsg" style="text-align:left"></p></div>
+</div>
+<div class="feat"><div data-reveal><h4 class="hd">From chalk to checkout</h4><p>Names, prices, descriptions and dietary tags pulled out in seconds, and specials can be ordered at the table straight away.</p></div><div data-reveal><h4 class="hd">A human signs off</h4><p>Nothing goes live until a manager taps publish. Edit any line first.</p></div><div data-reveal><h4 class="hd">Gone at close</h4><p>Specials expire at the end of service, so yesterday’s fish never haunts tomorrow’s menu.</p></div></div>
+</div></section>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+<script>
+(function(){
+const S=[{id:'sp-kingfish',name:'Kingfish Crudo',price:'$24',desc:'With finger lime, jalapeño, coconut',diet:['GF','DF'],options:[],allergens:['Fish'],c:98,b:[10,25,88,13]},
+{id:'sp-carnitas',name:'Pork Carnitas Tacos (3)',price:'$24',desc:'With pineapple salsa, pickled onion',diet:[],options:[],allergens:['Gluten'],c:97,b:[10,42,88,13]},
+{id:'sp-burrata',name:'Burrata & Heirloom Tomato',price:'$22',desc:'With basil oil, focaccia',diet:['V'],options:[],allergens:['Dairy','Gluten'],c:95,b:[10,59,88,13]},
+{id:'sp-daiquiri',name:'Mango Daiquiri',price:'$19',desc:'Rum, mango, lime',diet:[],options:[],c:99,b:[10,76,88,13]}];
+const $=s=>document.querySelector(s);let busy=false;
+$('#file').onchange=e=>{const f=e.target.files[0];if(!f)return;const im=$('#userimg');im.src=URL.createObjectURL(f);im.hidden=false;$('#note').textContent='Photo loaded. In this demo the reader returns the sample specials; live, it reads your board.';run()};
+$('#read').onclick=run;
+function run(){if(busy)return;busy=true;$('#items').innerHTML='<p class="empty-out">Reading the board…</p>';$('#pub').classList.remove('on');$('#pubmsg').textContent='';$('#boxes').innerHTML='';
+ const sc=$('#scan');sc.classList.remove('go');void sc.offsetWidth;sc.classList.add('go');
+ setTimeout(()=>{$('#items').innerHTML='';S.forEach((it,i)=>setTimeout(()=>{
+   if($('#userimg').hidden){const bx=document.createElement('span');bx.style.cssText=`left:${it.b[0]}%;top:${it.b[1]}%;width:${it.b[2]-it.b[0]}%;height:${it.b[3]}%`;$('#boxes').appendChild(bx);requestAnimationFrame(()=>bx.classList.add('on'))}
+   const d=document.createElement('div');d.className='ex';d.innerHTML=`<div><b>${it.name}</b><p>${it.desc}</p><div class="t">${it.diet.map(x=>'<i>'+x+'</i>').join('')}<span class="conf">${it.c}% match</span></div></div><span class="pr">${it.price}</span>`;$('#items').appendChild(d);requestAnimationFrame(()=>d.classList.add('on'));
+   if(i===S.length-1){$('#pub').classList.add('on');busy=false}},i*420))},1600)}
+$('#publish').onclick=()=>{localStorage.setItem('harbord-specials',JSON.stringify({note:'Fresh from the specials board today.',items:S.map(({c,b,...r})=>r)}));$('#pubmsg').textContent='Published. Today’s Specials now sit at the top of the Food menu, ready to order.'};
+})();
+</script>
+
+<div class="wrap"><div class="pager"><a href="sold-out.html"><small>← Previous</small><b>Sold-out switch</b></a><a href="group-menus.html"><small>Next →</small><b>Group menu system</b></a></div></div>
+<footer class="foot"><div class="wrap"><div><h4 class="hd">Built by BuildIT</h4><p>Ten working ideas for Epochal Hotels, designed and built by BuildIT in under a day. Everything here is clickable, mobile-first and ready to put on your own domain.</p><small>BuildIT · buildit.net.au · Prepared for Jess Fitzgerald and Glenn Piper, Epochal Hotels. Concept demos prepared by BuildIT; prices and dishes from the current Harbord menu.</small></div>
+<div><p class="eyebrow" style="color:var(--saffron)">Ideas</p><a href="../ideas/order-at-table.html">01 · QR menu & order at table</a><a href="../ideas/sold-out.html">02 · Sold-out switch</a><a href="../ideas/photo-to-menu.html">03 · Photo-to-menu specials</a><a href="../ideas/group-menus.html">04 · Group menu system</a><a href="../ideas/venue-tour.html">05 · 3D virtual venue tour</a></div><div><p class="eyebrow" style="color:var(--saffron)">&nbsp;</p><a href="../ideas/functions.html">06 · Functions & weddings</a><a href="../ideas/ai-search.html">07 · AI search-ready profile</a><a href="../ideas/whats-on.html">08 · Live What’s On</a><a href="../ideas/history.html">09 · Harbord history</a><a href="../ideas/group-showcase.html">10 · How it all fits</a></div></div></footer>
+<script src="../assets/vendor/gsap.min.js"></script><script src="../assets/vendor/ScrollTrigger.min.js"></script><script src="../assets/site.js"></script></body></html>
