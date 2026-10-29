@@ -1,4 +1,4 @@
-<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F9E4CB"><title>05 3D virtual venue tour · Harbord × BuildIT</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"><style>
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F9E4CB"><link rel="icon" href="data:,"><title>05 3D virtual venue tour · Harbord × BuildIT</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css"><style>
 .t3{position:relative;border-radius:26px;overflow:hidden;background:#f6e2c6;height:min(72vh,680px);min-height:460px}
 #tour3d{position:absolute;inset:0}#tour3d canvas{display:block;touch-action:none}
 #pins{position:absolute;inset:0;pointer-events:none}
@@ -19,6 +19,21 @@
 #tinfo{background:var(--paper);border-radius:22px;padding:22px}#tinfo .z{font:600 12px Oswald;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}#tinfo h3{font-size:34px;color:var(--terra);margin:6px 0 8px}#tinfo p{font-size:15px;color:#5b4232}
 .levels{background:var(--paper);border-radius:22px;padding:22px;font-size:14px}.levels table{width:100%;border-collapse:collapse}.levels td{padding:6px 0;border-bottom:1px dashed var(--line)}.levels td:last-child{text-align:right;font-family:Oswald;color:var(--terra)}
 @media(max-width:640px){.seg{max-width:100%;overflow-x:auto;scrollbar-width:none}.seg button{padding:6px 9px;font-size:11px;white-space:nowrap;flex:0 0 auto}.tlabel{bottom:auto;top:auto;right:14px;left:14px;bottom:120px;width:fit-content}.tcap{font-size:12.5px}}
+.t3.inside .tbar,.t3.inside .tfoot,.t3.inside #pins,.t3.inside .tlabel,.t3.flying .tbar,.t3.flying .tfoot,.t3.flying #pins,.t3.flying .tlabel{display:none}
+#tfade{position:absolute;inset:0;background:#f6e2c6;opacity:0;pointer-events:none;transition:opacity .4s ease}#tfade.on{opacity:1}
+#inui{position:absolute;inset:0;pointer-events:none}#inui[hidden]{display:none}#inui>*{pointer-events:auto}
+#inui .iztop{position:absolute;left:14px;right:14px;top:14px;display:flex;gap:8px;align-items:flex-start;pointer-events:none}#inui .iztop>*{pointer-events:auto}
+#inui .iztop .seg{flex:0 1 auto;overflow-x:auto;scrollbar-width:none}#inui .iztop .seg button{white-space:nowrap;flex:0 0 auto}
+#tout{position:absolute;right:14px;bottom:14px;padding:10px 16px 9px;font-size:13px}
+#icap{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 200px)}
+.ilabel{position:absolute;right:14px;top:62px;pointer-events:none!important}
+#ipins{position:absolute;inset:0;pointer-events:none}.t3:not(.inside) #ipins{display:none}
+.ipin{background:var(--terra)}
+#joy{position:absolute;left:22px;bottom:70px;width:112px;height:112px;border-radius:50%;background:rgba(252,240,225,.35);border:2px solid rgba(252,240,225,.85);box-shadow:0 4px 14px rgba(58,34,22,.2);touch-action:none;display:none}
+#joy i{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:rgba(154,74,44,.9);border:2px solid var(--cream)}
+@media (pointer:coarse),(max-width:700px){#joy{display:block}}
+.iref{margin:14px 0 0}.iref img{width:100%;max-height:220px;object-fit:cover;border-radius:14px;display:block}.iref figcaption{font-size:12px;color:#7a604c;margin-top:6px}
+@media(max-width:640px){#icap{bottom:64px;left:14px;right:14px;max-width:none;font-size:12px}#joy{bottom:112px}.ilabel{top:56px}}
 </style></head><body>
 <header class="top"><div class="wrap"><a class="brand" href="../index.html"><i class="mini"></i><b>Harbord × BuildIT</b><span>Epochal ideas</span></a><nav><a href="../index.html#ideas">Ideas</a><a class="hide-s" href="../ideas/order-at-table.html">Order demo</a><a href="../menu/index.html?table=12">Live menu</a></nav></div></header>
 <section class="ih"><div class="wrap"><div class="num">05</div><h1 class="hd">3D virtual venue tour</h1><p class="lede">Orbit, zoom and fly through the Harbord in 3D: front bar, dining room, courtyards, beer garden, Level 1 verandah, Bombies and the attic, with the proposed hotel one tap away.</p>
@@ -29,7 +44,9 @@
 <div class="tbar"><div class="seg" role="group" aria-label="Era"><button data-era="today" aria-pressed="true">The pub today</button><button data-era="future" aria-pressed="false">+ Proposed hotel</button></div>
 <div class="seg" role="group" aria-label="Cut-away level"><button data-cut="3" aria-pressed="true">All</button><button data-cut="2">Attic</button><button data-cut="1">Level 1</button><button data-cut="0">Ground</button><button data-cut="-1">Hotel basements</button></div></div>
 <span class="label sample tlabel">Traced from court-approved plans · concept only</span>
-<div class="tfoot"><button class="btn" id="tplay" aria-pressed="false">Play guided tour</button><button class="btn light" id="tnext">Next stop</button><span class="tcap" id="tcap">Drag to orbit, pinch or scroll to zoom, tap a building or a number.</span></div></div>
+<div class="tfoot"><button class="btn" id="tin">Explore inside →</button><button class="btn light" id="tplay" aria-pressed="false">Play guided tour</button><button class="btn light" id="tnext">Next stop</button><span class="tcap" id="tcap">Drag to orbit, pinch or scroll to zoom, tap a building or a number.</span></div>
+<div id="ipins"></div><div id="inui" hidden><div class="iztop"><div class="seg" role="group" aria-label="Jump to a zone" id="izs"></div></div>
+<span class="label sample ilabel">Illustrative, based on approved plans</span><span class="tcap" id="icap"></span><div id="joy" aria-label="Walk joystick"><i></i></div><button class="btn light" id="tout">← Back outside</button></div><div id="tfade"></div></div>
 <p class="cap" id="eraNote" style="text-align:left;margin-top:12px"></p>
 <div class="tside"><div id="tinfo" aria-live="polite"></div>
 <div class="levels"><div class="eyebrow" style="margin-bottom:8px">The pub, level by level</div><table>
