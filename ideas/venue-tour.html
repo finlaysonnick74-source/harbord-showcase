@@ -19,7 +19,7 @@
 #tinfo{background:var(--paper);border-radius:22px;padding:22px}#tinfo .z{font:600 12px Oswald;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}#tinfo h3{font-size:34px;color:var(--terra);margin:6px 0 8px}#tinfo p{font-size:15px;color:#5b4232}
 .levels{background:var(--paper);border-radius:22px;padding:22px;font-size:14px}.levels table{width:100%;border-collapse:collapse}.levels td{padding:6px 0;border-bottom:1px dashed var(--line)}.levels td:last-child{text-align:right;font-family:Oswald;color:var(--terra)}
 @media(max-width:640px){.seg{max-width:100%;overflow-x:auto;scrollbar-width:none}.seg button{padding:6px 9px;font-size:11px;white-space:nowrap;flex:0 0 auto}.tlabel{bottom:auto;top:auto;right:14px;left:14px;bottom:120px;width:fit-content}.tcap{font-size:12.5px}}
-.t3.inside .tbar,.t3.inside .tfoot,.t3.inside #pins,.t3.inside .tlabel,.t3.flying .tbar,.t3.flying .tfoot,.t3.flying #pins,.t3.flying .tlabel{display:none}
+.t3.inside #twalk,.t3.flying #twalk,.t3.inside .tbar,.t3.inside .tfoot,.t3.inside #pins,.t3.inside .tlabel,.t3.flying .tbar,.t3.flying .tfoot,.t3.flying #pins,.t3.flying .tlabel{display:none}
 #tfade{position:absolute;inset:0;background:#f6e2c6;opacity:0;pointer-events:none;transition:opacity .4s ease}#tfade.on{opacity:1}
 #inui{position:absolute;inset:0;pointer-events:none}#inui[hidden]{display:none}#inui>*{pointer-events:auto}
 #inui .iztop{position:absolute;left:14px;right:14px;top:14px;display:flex;gap:8px;align-items:flex-start;pointer-events:none}#inui .iztop>*{pointer-events:auto}
@@ -34,13 +34,16 @@
 @media (pointer:coarse),(max-width:700px){#joy{display:block}}
 .iref{margin:14px 0 0}.iref img{width:100%;max-height:220px;object-fit:cover;border-radius:14px;display:block}.iref figcaption{font-size:12px;color:#7a604c;margin-top:6px}
 @media(max-width:640px){#icap{bottom:64px;left:14px;right:14px;max-width:none;font-size:12px}#joy{bottom:112px}.ilabel{top:56px}}
+#twalk{position:absolute;left:50%;top:76px;transform:translateX(-50%);z-index:5;font-size:19px;padding:16px 30px 15px;box-shadow:0 10px 30px rgba(58,34,22,.35);white-space:nowrap;animation:twp 2.4s ease-in-out infinite}
+@keyframes twp{50%{box-shadow:0 10px 30px rgba(58,34,22,.35),0 0 0 10px rgba(224,164,58,.35)}}
+@media(max-width:640px){#twalk{top:104px;font-size:17px;padding:14px 24px 13px}}
 </style></head><body>
 <header class="top"><div class="wrap"><a class="brand" href="../index.html"><i class="mini"></i><b>Harbord × BuildIT</b><span>Epochal ideas</span></a><nav><a href="../index.html#ideas">Ideas</a><a class="hide-s" href="../ideas/order-at-table.html">Order demo</a><a href="../menu/index.html?table=12">Live menu</a></nav></div></header>
 <section class="ih"><div class="wrap"><div class="num">05</div><h1 class="hd">3D virtual venue tour</h1><p class="lede">Orbit, zoom and fly through the Harbord in 3D: front bar, dining room, courtyards, beer garden, Level 1 verandah, Bombies and the attic, with the proposed hotel one tap away.</p>
-<div class="facts"><div><b>Build time</b><span>1h 30m</span></div><div><b>Hosting</b><span>Cloudflare Pages</span></div><div><b>Support</b><span>BuildIT · buildit.net.au</span></div></div></div></section>
+<a class="btn" id="heroWalk" href="venue-tour.html?inside=1" style="margin-top:18px">Walk inside the pub →</a><div class="facts"><div><b>Build time</b><span>1h 30m</span></div><div><b>Hosting</b><span>Cloudflare Pages</span></div><div><b>Support</b><span>BuildIT · buildit.net.au</span></div></div></div></section>
 
 <section class="demo"><div class="wrap">
-<div class="t3"><div id="tour3d" aria-label="Interactive 3D model of the Harbord Hotel pub"></div><div id="pins"></div>
+<div class="t3"><button class="btn" id="twalk" aria-label="Walk inside the pub">Walk inside the pub <span aria-hidden="true">→</span></button><div id="tour3d" aria-label="Interactive 3D model of the Harbord Hotel pub"></div><div id="pins"></div>
 <div class="tbar"><div class="seg" role="group" aria-label="Era"><button data-era="today" aria-pressed="true">The pub today</button><button data-era="future" aria-pressed="false">+ Proposed hotel</button></div>
 <div class="seg" role="group" aria-label="Cut-away level"><button data-cut="3" aria-pressed="true">All</button><button data-cut="2">Attic</button><button data-cut="1">Level 1</button><button data-cut="0">Ground</button><button data-cut="-1">Hotel basements</button></div></div>
 <span class="label sample tlabel">Traced from court-approved plans · concept only</span>
@@ -54,7 +57,7 @@
 <p class="cap" style="text-align:left;margin-top:12px">Capacities and layout from DA2021/1620, approved by the Land and Environment Court in 2023 (architect Alexander &amp;CO.). The pub is traced to scale from the court-approved plans (ground, first and attic floors, roof and elevations, 1:100), with colours from the heritage report photos. The optional hotel layer is traced from planning proposal PP-2024-1593 (Hot House Architects, Rev A, 21 April 2023). Approximate; not a survey.</p></div></div>
 <div class="feat"><div data-reveal><h4 class="hd">The pub, zone by zone</h4><p>Front porch, main bar, Harbord Dining Room, courtyards, beer garden, Level 1 verandah, Bombies and the attic studio, each one tappable.</p></div><div data-reveal><h4 class="hd">Peel it back</h4><p>Lift the roof and step through the levels, from the beer garden at RL 14.62 to the attic bar at RL 23.34.</p></div><div data-reveal><h4 class="hd">And what’s next</h4><p>One tap adds the proposed accommodation building from the lodged planning proposal, for investor and community updates.</p></div></div>
 </div></section>
-<script src="../assets/tour.bundle.js?v=2" defer></script>
+<script src="../assets/tour.bundle.js?v=3" defer></script>
 
 <div class="wrap"><div class="pager"><a href="group-menus.html"><small>← Previous</small><b>Group menu system</b></a><a href="functions.html"><small>Next →</small><b>Functions & weddings</b></a></div></div>
 <footer class="foot"><div class="wrap"><div><h4 class="hd">Built by BuildIT</h4><p>Ten working ideas for Epochal Hotels, designed and built by BuildIT in under a day. Everything here is clickable, mobile-first and ready to put on your own domain.</p><small>BuildIT · buildit.net.au · Prepared for Jess Fitzgerald and Glenn Piper, Epochal Hotels. Concept demos prepared by BuildIT; prices and dishes from the current Harbord menu.</small></div>
