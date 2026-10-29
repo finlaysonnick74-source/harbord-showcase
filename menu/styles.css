@@ -1,4 +1,4 @@
-:root{--cream:#F9E4CB;--cream2:#F3D7B6;--paper:#FCF0E1;--terra:#9A4A2C;--brown:#5A2E1C;--olive:#6F7140;--saffron:#E0A43A;--teal:#5E8C8A;--ink:#3A2216;--line:rgba(90,46,28,.18)}
+:root{--cream:#F9E4CB;--cream2:#F3D7B6;--paper:#FCF0E1;--terra:#9A4A2C;--brown:#5A2E1C;--olive:#5E6036;--saffron:#E0A43A;--teal:#3F6A68;--ink:#3A2216;--line:rgba(90,46,28,.18)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--cream);color:var(--ink);font-family:"Libre Baskerville",Georgia,serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -110,3 +110,12 @@ footer a{color:var(--cream)}
 .track{position:fixed;left:12px;right:12px;bottom:12px;z-index:39;max-width:520px;margin:0 auto;background:var(--teal);color:var(--paper);border-radius:999px;padding:12px 20px;font-size:13px;display:none;text-align:center}
 .track.show{display:block}
 .sold-warn{background:var(--brown);color:var(--cream);border-radius:12px;padding:10px 12px;font-size:13px;margin:10px 0}
+
+/* WaldeComms standards layer: tap targets, focus, motion */
+button,.btn,a.btn,select,input{min-height:48px;min-width:48px}
+.tab,.sub,.chip{min-height:48px;display:inline-flex;align-items:center}
+.qty button{width:48px;height:48px}
+:focus-visible{outline:3px solid #1f4f8a;outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+h1,h2,h3,p,span,b,a,button{overflow-wrap:break-word;word-break:normal}
+img{max-width:100%;height:auto}
