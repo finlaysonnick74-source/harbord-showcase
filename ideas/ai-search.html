@@ -7,7 +7,17 @@
 .chat .a.bad{color:#6b5b50}.chat .a mark{background:rgba(224,164,58,.35);padding:0 2px}
 .chat h4{font-size:20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;color:var(--brown)}
 .tog{display:flex;gap:6px;margin-bottom:14px}.tog button{font:600 12px Oswald;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--terra);color:var(--terra);border-radius:999px;padding:6px 14px}.tog button[aria-pressed=true]{background:var(--terra);color:var(--paper)}
-pre{background:#22160f;color:#f4e3cc;border-radius:22px;padding:20px;overflow:auto;font-size:12.5px;line-height:1.55;max-height:560px}
+pre{background:#22160f;color:#f4e3cc;border-radius:16px;padding:18px;overflow:auto;font-size:12px;line-height:1.55;max-height:420px;margin:10px 0 0}
+.rc{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 40px rgba(58,34,22,.12);margin-top:12px}
+.rc .ph{position:relative;aspect-ratio:16/8.5;background:#e9d9c2}.rc .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.rc .ph .ex{position:absolute;left:12px;top:12px;background:rgba(58,34,22,.85);color:var(--cream);font:600 11px Oswald;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.rc .bd{padding:18px 20px 20px}.rc h3{font-size:28px;color:var(--terra);margin:0}.rc .sub{color:#7a604c;font-size:14px;margin:4px 0 12px}
+.rc .row{display:grid;grid-template-columns:88px 1fr;gap:6px 12px;font-size:14.5px;padding:10px 0;border-top:1px dashed var(--line)}.rc .row b{font:600 12px Oswald;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);padding-top:2px}
+.rc .chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:12px;border-top:1px dashed var(--line)}.rc .chips span{background:var(--paper);color:var(--brown);border-radius:999px;padding:5px 11px;font-size:13px}
+.rc .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.rc .acts span{border:1.5px solid var(--terra);color:var(--terra);border-radius:999px;padding:6px 14px;font:600 12px Oswald;letter-spacing:.1em;text-transform:uppercase}
+.rc .sum{background:var(--paper);border-radius:14px;padding:12px 14px;font-size:14px;margin:0 0 12px}.rc .sum small{display:block;font:600 11px Oswald;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+details.code{margin-top:14px}details.code summary{cursor:pointer;font:600 12px Oswald;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);list-style:none;display:inline-flex;gap:8px;align-items:center;border:1.5px solid var(--terra);border-radius:999px;padding:7px 14px}
+details.code summary::-webkit-details-marker{display:none}details.code[open] summary{background:var(--terra);color:var(--paper)}
 pre .k{color:#E0A43A}pre .s{color:#9cc5c2}
 .codebar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 </style></head><body>
@@ -16,7 +26,18 @@ pre .k{color:#E0A43A}pre .s{color:#9cc5c2}
 <div class="facts"><div><b>Build time</b><span>30m</span></div><div><b>Hosting</b><span>Added to any site</span></div><div><b>Support</b><span>BuildIT · buildit.net.au</span></div></div></div></section>
 
 <section class="demo"><div class="wrap"><div class="ai">
-<div><div class="codebar"><span class="label real">Real venue data</span><button class="btn ghost" id="copy" style="padding:8px 16px">Copy JSON-LD</button></div><pre id="code"></pre><p class="cap" style="text-align:left">schema.org markup built from the Harbord’s public details. Pasted into any page’s head, it tells search engines and AI assistants exactly what the venue is.</p></div>
+<div><span class="label sample">Example result card</span>
+<div class="rc" aria-label="Example of how an AI assistant or search result could show the Harbord"><div class="ph"><img src="../assets/img/tour/facade.jpg" alt="The Harbord Hotel on Moore Road, Freshwater" width="720" height="395"><span class="ex">Example</span></div>
+<div class="bd"><h3 class="hd">Harbord Hotel</h3><div class="sub">Pub · Freshwater, NSW · $$ · The Freshwater Beach House</div>
+<div class="sum"><small>Example AI summary</small>Beachside pub a minute from Freshwater Beach, with the Bombies rooftop bar and band room upstairs, a dog-friendly courtyard and live music Friday and Saturday.</div>
+<div class="row"><b>Address</b><span>29 Moore Rd, Freshwater NSW 2096</span></div>
+<div class="row"><b>Hours</b><span>Open daily, 11am to midnight</span></div>
+<div class="row"><b>Phone</b><span>(02) 9905 3434</span></div>
+<div class="row"><b>Food</b><span>Seafood, wood-fired pizza, Californian, Mexican-inspired</span></div>
+<div class="chips"><span>Rooftop bar (Bombies)</span><span>Dog-friendly courtyard</span><span>Live music Fri &amp; Sat</span><span>Takes bookings</span><span>Since 1928</span></div>
+<div class="acts"><span>Menu</span><span>Book a table</span><span>Directions</span><span>Call</span></div></div></div>
+<p class="cap" style="text-align:left">An example of how the Harbord could appear when someone asks a search engine or AI assistant. Every detail comes from the venue’s structured data below.</p>
+<details class="code"><summary>Show the code behind it</summary><div class="codebar" style="margin-top:12px"><span class="label real">Real venue data · schema.org</span><button class="btn ghost" id="copy" style="padding:8px 16px">Copy code</button></div><pre id="code"></pre><p class="cap" style="text-align:left">Pasted into the website’s head, it tells search engines and AI assistants exactly what the venue is. Invisible to visitors.</p></details></div>
 <div><span class="label sample">Illustrative mock-up</span><div class="chat" style="margin-top:12px"><h4 class="hd">Asking an AI assistant</h4><div class="tog"><button aria-pressed="true" data-m="before">Before</button><button aria-pressed="false" data-m="after">After</button></div>
 <div class="q">Is there a good pub near Freshwater Beach with a rooftop, and can I bring my dog?</div><div class="a" id="ans"></div></div>
 <p class="cap" style="text-align:left">An example of the kind of answer AI assistants give. Not a real transcript.</p></div>
@@ -35,8 +56,8 @@ const ld={"@context":"https://schema.org","@type":"BarOrPub","name":"Harbord Hot
 "sameAs":["https://www.instagram.com/harbordhotel/","https://www.facebook.com/harbordhotel/"]};
 const j=JSON.stringify(ld,null,2);const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 document.getElementById('code').innerHTML=esc('<script type="application/ld+json">\n'+j+'\n</'+'script>').replace(/"([^"]+)":/g,'<span class="k">"$1"</span>:').replace(/: "([^"]*)"/g,': <span class="s">"$1"</span>');
-document.getElementById('copy').onclick=async e=>{try{await navigator.clipboard.writeText('<script type="application/ld+json">\n'+j+'\n</'+'script>');e.target.textContent='Copied'}catch(_){e.target.textContent='Select and copy'}setTimeout(()=>e.target.textContent='Copy JSON-LD',1800)};
-const A={before:'<span class="a bad">There are several pubs on the Northern Beaches. You could try a hotel in Manly or Dee Why. I’m not sure which ones have rooftops or allow dogs, so it’s best to check their websites or call ahead.</span>',
+document.getElementById('copy').onclick=async e=>{try{await navigator.clipboard.writeText('<script type="application/ld+json">\n'+j+'\n</'+'script>');e.target.textContent='Copied'}catch(_){e.target.textContent='Select and copy'}setTimeout(()=>e.target.textContent='Copy code',1800)};
+const A={before:'There are several pubs on the Northern Beaches. You could try a hotel in Manly or Dee Why. I’m not sure which ones have rooftops or allow dogs, so it’s best to check their websites or call ahead.',
 after:'Yes. <mark>Harbord Hotel</mark> at 29 Moore Rd, Freshwater is a minute from the beach. Upstairs is <mark>Bombies</mark>, a rooftop bar and band room, and <mark>dogs are welcome in the courtyard</mark>. It’s open daily from 11am until late, with live music on Friday and Saturday nights. Call (02) 9905 3434 or book online.'};
 const ans=document.getElementById('ans');const set=m=>{ans.innerHTML=A[m];ans.classList.toggle('bad',m==='before');document.querySelectorAll('.tog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m))};
 document.querySelector('.tog').onclick=e=>{const b=e.target.closest('button');if(b)set(b.dataset.m)};set('before');
