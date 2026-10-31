@@ -1,5 +1,5 @@
-<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="wc-ver" content="202610311454"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Table card · Harbord Hotel</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=202610311454">
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="wc-ver" content="202610311617"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Table card · Harbord Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=202610311617">
 <style>
 body{display:flex;flex-direction:column;align-items:center;padding:30px 16px;gap:18px}
 .card{width:100mm;height:148mm;background:var(--cream);border-radius:50mm 50mm 6mm 6mm;border:2.5px solid var(--terra);outline:1.5px solid var(--terra);outline-offset:-9px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14mm 10mm 10mm;box-shadow:0 18px 40px rgba(90,46,28,.18)}
@@ -19,7 +19,7 @@ body{display:flex;flex-direction:column;align-items:center;padding:30px 16px;gap
 <div class="scan hd">Scan to order</div><div class="sm">Food, drinks & Bombies rooftop, brought to your table.</div><div class="tbl hd"><span id="tno"></span> · 29 Moore Rd</div></div>
 <div class="act"><button class="hd" onclick="print()">Print table card</button></div>
 <p class="sm" id="qrurl" style="max-width:100mm;text-align:center"></p>
-<script src="../assets/vendor/qrcode.js?v=202610311454"></script><script>
+<script src="../assets/vendor/qrcode.js?v=202610311617"></script><script>
 const tn=(new URLSearchParams(location.search).get('table')||'12').replace(/[^0-9A-Za-z]/g,'').slice(0,4);const url=new URL('./?table='+tn,location.href).href;document.getElementById('tno').textContent='Table '+tn;const q=qrcode(0,'H');q.addData(url);q.make();
 const n=q.getModuleCount(),c=[];for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))c.push(`M${k} ${r}h1v1h-1z`);
 document.getElementById('qr').innerHTML=`<svg viewBox="0 0 ${n} ${n}" shape-rendering="crispEdges"><path fill="#5A2E1C" d="${c.join('')}"/></svg>`;
