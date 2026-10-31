@@ -1,0 +1,54 @@
+<!doctype html><html lang="en-AU" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="wc-ver" content="202610311454"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#F9E4CB"><link rel="icon" href="data:,"><title>New hotel in 3D · Harbord × BuildIT</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/site.css?v=202610311454"><style>
+.t3{position:relative;border-radius:26px;overflow:hidden;background:#f6e2c6;height:min(72vh,680px);min-height:460px}
+#hotel3d{position:absolute;inset:0}#hotel3d canvas{display:block;touch-action:none}
+.tbar{position:absolute;left:14px;right:14px;top:14px;display:flex;gap:8px;flex-wrap:wrap;pointer-events:none}
+.seg{display:flex;gap:4px;background:rgba(252,240,225,.92);border-radius:999px;padding:4px;pointer-events:auto;box-shadow:0 4px 14px rgba(58,34,22,.12)}
+.seg button{font:600 12px Oswald;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;border-radius:999px;color:var(--brown);white-space:nowrap;flex:0 0 auto}
+.seg button[aria-pressed=true]{background:var(--terra);color:var(--paper)}
+.tcap{position:absolute;left:14px;bottom:14px;max-width:min(560px,calc(100% - 28px));background:rgba(58,34,22,.88);color:var(--cream);border-radius:18px;padding:9px 16px;font-size:13.5px;pointer-events:none}.tcap b{font-family:Oswald;color:var(--saffron);margin-right:6px}
+.tlabel{position:absolute;right:14px;bottom:14px;pointer-events:none}
+#hjoy{position:absolute;right:22px;bottom:70px;width:112px;height:112px;border-radius:50%;background:rgba(252,240,225,.35);border:2px solid rgba(252,240,225,.85);touch-action:none;display:none}
+#hjoy i{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:rgba(154,74,44,.9);border:2px solid var(--cream)}
+@media (pointer:coarse),(max-width:700px){.walking #hjoy{display:block}}
+@media(max-width:640px){.seg{max-width:100%;overflow-x:auto;scrollbar-width:none}.seg button{padding:6px 10px}.tcap{bottom:52px;font-size:12.5px}.tlabel{left:14px;right:auto}}
+.hside{display:grid;gap:22px;grid-template-columns:1fr;margin-top:22px}@media(min-width:900px){.hside{grid-template-columns:1fr 1fr}}
+.levels{background:var(--paper);border-radius:22px;padding:22px;font-size:15px}.levels table{width:100%;border-collapse:collapse}.levels td{padding:7px 0;border-bottom:1px dashed var(--line);vertical-align:top}.levels td:last-child{text-align:right;font-family:Oswald;color:var(--terra);white-space:nowrap;padding-left:12px}
+.srcs{background:var(--paper);border-radius:22px;padding:22px;font-size:15px}.srcs ul{margin:0;padding-left:18px}.srcs li{margin:6px 0}
+.ih{padding:26px 0 12px}.ih .num{font-size:64px}.ih h1{margin:4px 0 8px}.ih .facts{margin-top:14px}.ih .facts div{padding-top:8px;padding-bottom:8px}
+@media(max-width:700px){.walking .tcap{display:none}}
+</style><script>document.documentElement.classList.replace('no-js','js')</script></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top"><div class="wrap"><a class="brand" href="../index.html?v=202610311454" aria-label="Harbord × BuildIT, home"><i class="mini" aria-hidden="true"></i><b>Harbord × BuildIT</b><span>Epochal ideas</span></a><nav class="nav" aria-label="Main"><a href="../index.html?v=202610311454#ideas">Ideas</a><a href="../ideas/venue-tour.html?v=202610311454">3D Tour</a><a href="../ideas/hotel-model.html?v=202610311454" aria-current="page">New hotel</a><a href="../ideas/order-at-table.html?v=202610311454">Order demo</a><a href="../menu/index.html?table=12&v=202610311454">Live menu</a></nav><a class="menu-btn" href="#mmenu" data-menu aria-controls="mmenu" aria-expanded="false">Menu</a></div></header>
+<div class="mmenu" id="mmenu"><div class="wrap"><div class="mlinks"><a href="../index.html?v=202610311454#ideas">Ideas</a><a href="../ideas/venue-tour.html?v=202610311454">3D Tour</a><a href="../ideas/hotel-model.html?v=202610311454" aria-current="page">New hotel</a><a href="../ideas/order-at-table.html?v=202610311454">Order demo</a><a href="../menu/index.html?table=12&v=202610311454">Live menu</a></div><a class="btn ghost mclose" href="#top" data-menu-close>Close menu</a></div></div>
+<main id="main">
+<section class="ih"><div class="wrap"><div class="num">New</div><h1 class="hd">The new Harbord hotel in 3D</h1><p class="lede">Buildings A and B from the HBH development application, modelled to the plans beside the pub. Orbit the outside, peel back each floor to see the rooms, or walk the Building A corridor.</p>
+<div class="facts"><div><b>Guest rooms</b><span>44 on the DA plans</span></div><div><b>Storeys</b><span>A: 3 · B: 2 + mezzanine</span></div><div><b>Source</b><span>HBH DA, June 2026</span></div></div></div></section>
+
+<section class="demo" data-fit-exempt="all"><div class="wrap">
+<div class="t3"><div id="hotel3d" role="img" aria-label="Interactive 3D model of the proposed Harbord Beach Hotel accommodation, Buildings A and B, beside the existing pub"></div>
+<div class="tbar"><div class="seg" role="group" aria-label="Floor cutaway"><button data-cut="all" aria-pressed="true">Exterior</button><button data-cut="2" aria-pressed="false">Level 2</button><button data-cut="1" aria-pressed="false">Level 1</button><button data-cut="0" aria-pressed="false">Ground</button><button data-cut="B" aria-pressed="false">Basements</button></div>
+<div class="seg" role="group" aria-label="Walk inside"><button id="hwalk" aria-pressed="false">Walk the corridor →</button></div></div>
+<p class="tcap" id="hcap" aria-live="polite"></p>
+<span class="label sample tlabel">Based on DA plans (in progress)</span>
+<div id="hjoy" aria-hidden="true"><i></i></div></div>
+<div class="hside">
+<div class="levels"><div class="eyebrow mb-8">The hotel, level by level</div><table>
+<tr><td>Roof · Building A parapet · RL 27.25</td><td>&nbsp;</td></tr>
+<tr><td>Level 2 · Building A · RL 23.35 · rooftop pool</td><td>10 rooms</td></tr>
+<tr><td>Level 1 · Building A RL 20.15 · Building B RL 19.52 · gym</td><td>16 rooms</td></tr>
+<tr><td>Ground · Building A RL 16.95 · Building B RL 16.42 · lounge &amp; reception</td><td>18 rooms</td></tr>
+<tr><td>Basements · B01 RL 13.06 · B02 RL 9.96 · car parking</td><td>&nbsp;</td></tr>
+<tr><td><strong>Total guest rooms shown on the plans</strong></td><td>44</td></tr></table>
+<p class="cap tl mt-8">Building A is about 44 m long and 15 m deep, with 3.2 m floor-to-floor. Building B is about 11 m by 26 m. Heights are in metres AHD.</p></div>
+<div class="srcs"><div class="eyebrow mb-8">Where this comes from</div><ul>
+<li>HBH DA set, Hot House Architects, June 2026: Level 00, 01 and 02 plans (DA_102 to DA_104, 1:100), roof plan, elevations and sections 1 to 9.</li>
+<li>Buildings A and B perspectives (rooms 103, 203, 401 and 404, foyers, pool and courtyard) for the cladding, timber battens and roof.</li>
+<li>Plan finalisation report PP-2024-1593, Warringah LEP 2011, for 29–31 Moore Rd and 64 Undercliff Rd.</li></ul>
+<p class="cap tl mt-8">Concept massing for discussion. The design is still in progress, so treat sizes and room numbers as indicative.</p></div></div>
+</div></section>
+<script src="../assets/hotel.bundle.js?v=202610311454" defer></script>
+
+<div class="wrap"><div class="pager"><a href="venue-tour.html?v=202610311454"><small>← Pub tour</small><b>3D virtual venue tour</b></a><a href="../index.html?v=202610311454#ideas"><small>All ideas →</small><b>Back to the ten ideas</b></a></div></div>
+</main><footer class="foot"><div class="wrap"><div><h2 class="hd fh">Built by BuildIT</h2><p>Ten working ideas for Epochal Hotels, designed and built by BuildIT in under a day. Everything here is clickable, mobile-first and ready to put on your own domain.</p><small>BuildIT · buildit.net.au · Prepared for Jess Fitzgerald and Glenn Piper, Epochal Hotels. Concept demos prepared by BuildIT; prices and dishes from the current Harbord menu.</small></div>
+<div><p class="eyebrow fe">Ideas</p><a href="../ideas/order-at-table.html?v=202610311454">01 · QR menu & order at table</a><a href="../ideas/sold-out.html?v=202610311454">02 · Sold-out switch</a><a href="../ideas/photo-to-menu.html?v=202610311454">03 · Photo-to-menu specials</a><a href="../ideas/group-menus.html?v=202610311454">04 · Group menu system</a><a href="../ideas/venue-tour.html?v=202610311454">05 · 3D virtual venue tour</a></div><div><p class="eyebrow fe" aria-hidden="true">&nbsp;</p><a href="../ideas/functions.html?v=202610311454">06 · Functions & weddings</a><a href="../ideas/ai-search.html?v=202610311454">07 · AI search-ready profile</a><a href="../ideas/whats-on.html?v=202610311454">08 · Live What’s On</a><a href="../ideas/history.html?v=202610311454">09 · Harbord history</a><a href="../ideas/group-showcase.html?v=202610311454">10 · How it all fits</a></div></div></footer>
+<script src="../assets/vendor/gsap.min.js?v=202610311454"></script><script src="../assets/vendor/ScrollTrigger.min.js?v=202610311454"></script><script src="../assets/site.js?v=202610311454"></script></body></html>
