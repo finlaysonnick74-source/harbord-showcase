@@ -75,7 +75,7 @@ function showStatus(id){watching=id;const o=allOrders().find(x=>x.id===id);if(!o
   openSheet(`<div class="status"><div class="sun" aria-hidden="true"></div><div class="ono hd">Order #${o.no} · Table ${esc(o.table)}</div><h3 class="hd">${o.status==='delivered'?'Enjoy!':'Order placed'}</h3><p class="sd">Paid ${money(o.total)} by ${esc(o.pay)} (demo)</p></div>
   <ol class="steps">${steps.map((s,i)=>`<li class="${i<k||(i===k&&o.status==='delivered')?'done':i===k?'now':''}"><div><b>${s[0]}</b><small>${s[1]}</small></div></li>`).join('')}</ol>
   ${o.items.map(c=>`<div class="line"><span class="q">${c.qty}×</span><div>${esc(c.name)}${c.opt?' · '+esc(c.opt):''}</div><span class="p">${money(c.qty*c.unit)}</span></div>`).join('')}
-  <button class="big hd" id="more" style="margin-top:18px;width:100%;justify-content:center">Order something else</button>`);
+  <button class="big hd" id="more" style="margin-top:16px;width:100%;justify-content:center">Order something else</button>`);
   $('#more').onclick=()=>{watching=null;closeSheet();track()}}
 function sync(){if(watching&&$('#sheet').classList.contains('show'))showStatus(watching);track()}
 bc&&bc.addEventListener('message',sync);addEventListener('storage',e=>{if(e.key===OK)sync()});
